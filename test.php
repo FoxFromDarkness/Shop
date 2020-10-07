@@ -42,36 +42,31 @@ $costumer1->showCustomer();
 $costumer2->showCustomer();
 $costumer3->showCustomer();
 
-//echo "<br>";
-//
-//echo "Cart " . $cart1->getId() .": ";
-//echo var_dump($cart1->getProducts()) . "<br><br>";
-//echo "Cart " . $cart2->getId() .": ";
-//echo var_dump($cart2->getProducts()) . "<br><br>";
-//
-//$cart1->migrationCart($cart2); //array marge ???
-//
-//echo "Cart " . $cart1->getId() .": ";
-//echo var_dump($cart1->getProducts()) . "<br><br>";
-//echo "Cart " . $cart2->getId() .": ";
-//echo var_dump($cart2->getProducts()) . "<br><br>";
-
-//echo var_dump($cart1->getProduct(0));
+echo "<br>";
 
 
-//echo var_dump($cart1->getProducts()) . "<br>";
-//echo "Cena razem: " . $cart1->getProductsPrice() . " zł" . "<br>";
-//echo "Ilość produktów: " . $cart1->getProductsNum() . "<br><br>";
-//
-//$cart1->deleteProduct(3);
-//echo var_dump($cart1->getProducts()) . "<br>";
-//echo "Cena razem: " . $cart1->getProductsPrice() . " zł" . "<br>";
-//echo "Ilość produktów: " . $cart1->getProductsNum() . "<br><br>";
-//
-//$cart1->addProduct($mouse1);
-//echo var_dump($cart1->getProducts()) . "<br>";
-//echo "Cena razem: " . $cart1->getProductsPrice() . " zł" . "<br>";
-//echo "Ilość produktów: " . $cart1->getProductsNum() . "<br><br>";
+$costumer1->getCart()->migrationCart($costumer2->getCart());
+
+$costumer1->showCustomer();
+$costumer2->showCustomer();
+$costumer3->showCustomer();
+
+echo var_dump($costumer1->getCart()->getProduct(0)) . "<br><br>";
+
+
+echo var_dump($costumer1->getCart()->getProducts()) . "<br>";
+echo "Cena razem: " . $costumer1->getCart()->getProductsPrice() . " zł<br>";
+echo "Ilość produktów: " . $costumer1->getCart()->getProductsNum() . "<br><br>";
+
+$costumer1->getCart()->deleteProduct(0);
+echo var_dump($costumer1->getCart()->getProducts()) . "<br>";
+echo "Cena razem: " . $costumer1->getCart()->getProductsPrice() . " zł<br>";
+echo "Ilość produktów: " . $costumer1->getCart()->getProductsNum() . "<br><br>";
+
+$costumer1->getCart()->addProduct($mouse1);
+echo var_dump($costumer1->getCart()->getProducts()) . "<br>";
+echo "Cena razem: " . $costumer1->getCart()->getProductsPrice() . " zł<br>";
+echo "Ilość produktów: " . $costumer1->getCart()->getProductsNum() . "<br><br>";
 ?>
 </body>
 </html>
